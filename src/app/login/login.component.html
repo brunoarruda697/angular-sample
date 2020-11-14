@@ -1,1 +1,50 @@
-<p>oi</p>
+<div class="background">
+  <mat-card class="card">
+    <form [formGroup]="user" (ngSubmit)="onSubmit()">
+      <mat-card-header style="justify-content: center;">
+        <mat-card-title>Log In</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-group">
+          <label for="username">
+            Username
+          </label>
+          <br>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            class="form-control"
+            formControlName="username"
+          >
+          <div *ngIf="user.controls['username'].invalid && (user.controls['username'].dirty || user.controls['username'].touched || submitted)" class="alert alert-danger">
+            <div *ngIf="user.controls['username'].errors.required">
+              Username is required.
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="password">
+            Password
+          </label>
+          <br>
+          <input
+            id="password"
+            type="text"
+            name="password"
+            class="form-control"
+            formControlName="password"
+          >
+          <div *ngIf="user.controls['password'].invalid && (user.controls['password'].dirty || user.controls['password'].touched || submitted)" class="alert alert-danger">
+            <div *ngIf="user.controls['password'].errors.required">
+              Password is required.
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button type="submit">Enter</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
