@@ -1,5 +1,5 @@
-import { User } from './shared/user';
-import { LoginService } from './service/login.service';
+import { AuthenticationService } from './../services/authentication.service';
+import { User } from './shared/user.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -12,7 +12,10 @@ export class LoginComponent implements OnInit {
   user: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginService: AuthenticationService
+  ) { }
 
   ngOnInit() {
     this.createForm(new User());
@@ -31,12 +34,8 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (this.user.valid) {
       this.submitted = false;
-      console.log('é valido');
-      this.user.reset();
+      this.loginService.signIn(this.user.controls['username'].value, this.user.controls['password'].value);
       return;
     }
-    // esperando os metodos do service
-    // this.loginService.
-    console.log(this.user.value);
   }
 }
