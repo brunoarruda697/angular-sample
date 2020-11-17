@@ -1,12 +1,10 @@
 <div class="background">
   <mat-card class="card fade-in">
     <form [formGroup]="user" (ngSubmit)="onSubmit()">
-      <mat-card-header style="justify-content: center;">
-        <mat-card-title class="font-weight-bold text-monospace text-center">Log In</mat-card-title>
-        <mat-card-subtitle class="text-monospace">
-          Or
-          <a href="/register">Create account</a>
-        </mat-card-subtitle>
+      <mat-card-header style="display: flex; justify-content: center;">
+        <mat-card-title class="font-weight-bold text-monospace">
+          Sign Up
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="form-group">
@@ -51,7 +49,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions class="mx-0">
-        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
       </mat-card-actions>
     </form>
   </mat-card>
