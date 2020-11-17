@@ -26,6 +26,7 @@ export class AuthenticationService {
   signUp(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(response => {
+      console.log('criou');
       localStorage.setItem('user', JSON.stringify(response.user));
     })
     .catch(error => {
